@@ -19,6 +19,7 @@ cabal-version:       >=1.10
 executable DataMiningWeka
   hs-source-dirs:      src
   main-is:             Main.hs
+  other-modules:       ExecConfig
 
   build-depends:       base >=4.7 && <4.8
                      , yaml >= 0.8
@@ -28,5 +29,4 @@ executable DataMiningWeka
                      , filepath >= 1.4
 
   default-language:    Haskell2010
-  -- other-extensions:
-  other-modules:       ExecConfig
+  other-extensions:    OverloadedStrings
