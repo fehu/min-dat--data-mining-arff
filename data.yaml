@@ -1,5 +1,7 @@
 
-data : ~/study/tec/mineria-de-datos/weka-3-6-13/data/supermarket.arff
-class: total
+#data : ~/study/tec/mineria-de-datos/weka-3-6-13/data/supermarket.arff
+
+data : ~/study/tec/mineria-de-datos/weka-3-6-13/data/weather.nominal.arff
+class: play
 
 report-dir: logs

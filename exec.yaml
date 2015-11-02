@@ -10,5 +10,5 @@
       str    : "--iter %p"
       replace: "%p"
       
-- name  : NaiveBayes
-  exec  : "NaiveBayes $file $file $class >> $log"
+#- name  : NaiveBayes
+  #exec  : "NaiveBayes $file $file $class >> $log"

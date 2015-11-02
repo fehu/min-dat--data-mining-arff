@@ -3,11 +3,13 @@
 -- |
 --
 -- Module      :  ExecConfig
--- Copyright   :
+-- Description :  Applications execution configs.
 -- License     :  MIT
 --
--- 'ExecConfig' -> 'ExecParams' -> 'DataConfig' -> ...
---
+-- Builds commands to execute applications, given configs:
+-- @
+--  [ExecConfig] -> [ExecParams] -> DataConfig -> [Command]
+-- @
 
 
 module ExecConfig (
@@ -104,11 +106,11 @@ mkCommand exc txt dfile clazz logdir =
         . Txt.replace (Txt.pack "$file")  (Txt.pack dfile)
         . Txt.replace (Txt.pack "$class") (Txt.pack clazz)
         . Txt.replace (Txt.pack "$log")
-                      (Txt.pack $ logdir ++ pathSeparator:execName exc)
+                      (Txt.pack $ logdir ++ pathSeparator:execName exc ++ ".log")
         $ txt
 
 
--- | Creates 'PrepareCommand's using '[ExecConfig]' and '[ExecParams]'.
+-- | Creates 'PrepareCommand's using ['ExecConfig'] and ['ExecParams'].
 prepareCommands :: [ExecConfig] -> [ExecParams] -> [PrepareCommand]
 prepareCommands econfs eparams = do
     econf <- econfs
@@ -157,9 +159,8 @@ instance FromJSON ExecConfig where
 
 -----------------------------------------------------------------------------
 
--- | Execution parameters.
-data ExecParams = ExecParams String              -- ^ Application name.
-                             (Map String String) -- ^ parameters name->value.
+-- | Execution parameters: application name and name->value 'Map'.
+data ExecParams = ExecParams String (Map String String)
                 deriving Show
 
 
