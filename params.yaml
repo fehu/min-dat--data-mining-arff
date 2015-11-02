@@ -1,0 +1,3 @@
+
+- name   : Apriori
+  params : { minsup : "0.3", minconf: "0.9" }

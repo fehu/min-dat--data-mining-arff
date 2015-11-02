@@ -1,0 +1,14 @@
+
+- name  : Apriori
+  exec  : "mine-rules $file $minsup $minconf >> $log"
+  params: [minsup, minconf]
+      
+- name      : ID3
+  exec      : "ID3Weka $file $class $iter >> $log"
+  opt-params:  
+    - name   : iter
+      str    : "--iter %p"
+      replace: "%p"
+      
+- name  : NaiveBayes
+  exec  : "NaiveBayes $file $file $class >> $log"

@@ -1,0 +1,5 @@
+
+data : ~/study/tec/mineria-de-datos/weka-3-6-13/data/supermarket.arff
+class: total
+
+report-dir: logs
